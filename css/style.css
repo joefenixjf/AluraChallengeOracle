@@ -278,7 +278,7 @@ body {
   }
 
   .resultado article h2:before{
-    content: url(./img/procurando.svg);
+    content: url("../img/procurando.svg");
     width: 100px;
   }
 
