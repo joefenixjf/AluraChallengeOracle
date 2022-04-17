@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Codificador de Texto</title>
+  </head>
+  <body>
+    <div class="container">
+      <aside class="logo">
+        <img src="./img/LogoAlura.svg" alt="logo alura" srcset="" />
+      </aside>
+      <main class="principal">
+        <section class="text-enter">
+          <textarea
+            class="area-code"
+            placeholder="Digite  o seu texto"
+            cols="30"
+            rows="10"
+          ></textarea>
+          <div class="area-code-btn">
+            <p class="warning">
+              <img src="./img/warning.svg" alt="" /> Apenas Letras minúsculas e
+              sem acento.
+            </p>
+            <div class="area-code-areaBtn">
+              <button class="incrip">Criptografar</button
+              ><button class="descrip">Descriptografar</button>
+            </div>
+          </div>
+        </section>
+        <section class="resultado">
+          <article class="resultado-text">
+            <h2>Nenhuma mensagem encontrada</h2>
+            <p>
+              Digie um texto que você deseja criptografar ou descriptografar.
+            </p>
+          </article>
+          <button class="resultado-btnCopy">Copiar</button>
+        </section>
+      </main>
+      <footer class="rodape">
+        <p class="rodape-text">
+          Desevolvido por
+          <a href="https://github.com/joefenixjf">Joe Fênix;</a> como parte do
+          AluraChallengeOracle
+        </p>
+      </footer>
+    </div>
+  </body>
+  <script src="./js/codificador.js"></script>
+</html>
