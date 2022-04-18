@@ -1,36 +1,21 @@
-// tenterxtober boberbaiober
-// aienterimesoberufat
-
 const textCode = document.querySelector(".area-code");
 const textResult = document.querySelector(".resultado-text");
 const btnDecrip = document.querySelector(".descrip");
 const btnCrip = document.querySelector(".incrip");
 const btnCopy = document.querySelector(".resultado-btnCopy");
+const code = {
+  a: "ai",
+  e: "enter",
+  i: "imes",
+  o: "ober",
+  u: "ufat",
+};
 
 const codificador = () => {
-  let text = textCode.value;
-  text = text.split("");
+  let text = textCode.value.split("");
   text = text
     .map((i) => {
-      switch (i) {
-        case "a":
-          return "ai";
-          break;
-        case "e":
-          return "enter";
-          break;
-        case "i":
-          return "imes";
-          break;
-        case "o":
-          return "ober";
-          break;
-        case "u":
-          return "ufat";
-          break;
-        default:
-          return i;
-      }
+      return code[i] || i;
     })
     .join("");
 
@@ -39,15 +24,10 @@ const codificador = () => {
 
 const descodificador = () => {
   let text = textCode.value;
-  let a = { reg: /\ai/g, text: "a" };
-  let e = { reg: /\enter/g, text: "e" };
-  let i = { reg: /\imes/g, text: "i" };
-  let o = { reg: /\ober/g, text: "o" };
-  let u = { reg: /\ufat/g, text: "u" };
-  const code = [a, e, i, o, u];
-  code.forEach((i) => {
-    text = text.replace(i.reg, i.text);
-  });
+  for (let prop in code) {
+    let reg = new RegExp(`\\${code[prop]}`, "g");
+    text = text.replace(reg, prop);
+  }
   mostraResultado(text);
 };
 
