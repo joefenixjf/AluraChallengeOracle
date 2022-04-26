@@ -11,27 +11,23 @@ const code = {
   u: "ufat",
 };
 
-const codificador = () => {
-  let text = textCode.value.split("");
-  text = text
-    .map((i) => {
-      return code[i] || i;
-    })
-    .join("");
-
-  mostraResultado(text);
-};
-
-const descodificador = () => {
+const encriptador = (e) => {
   let text = textCode.value;
-  for (let prop in code) {
-    let reg = new RegExp(`\\${code[prop]}`, "g");
-    text = text.replace(reg, prop);
+  let classe = e.target.getAttribute("class");
+  for (prop in code) {
+    if (classe == "incrip") {
+      let reg = new RegExp(`\\${prop}`, "g");
+      text = text.replace(reg, code[prop]);
+    } else {
+      let reg = new RegExp(`\\${code[prop]}`, "g");
+      text = text.replace(reg, prop);
+    }
   }
   mostraResultado(text);
 };
 
 const copyText = (i) => {
+  alert("texto copiado");
   const textoResultado = document
     .querySelector(".textoResultado")
     .getAttribute("placeholder");
@@ -48,6 +44,6 @@ function mostraResultado(text) {
     ></textarea>`;
 }
 
-btnCrip.addEventListener("click", codificador);
-btnDecrip.addEventListener("click", descodificador);
+btnCrip.addEventListener("click", encriptador);
+btnDecrip.addEventListener("click", encriptador);
 btnCopy.addEventListener("click", copyText);
